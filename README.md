@@ -25,8 +25,7 @@ Reference:     
 
 [Windsor/README.md at master · castleproject/Windsor · GitHub](https://github.com/castleproject/Windsor/blob/master/docs/README.md)
 
-|**Windsor DI - Code snippet**                                                                                                                  |
-|-----------------------------------------------------------------------------------------------------------------------------------------------|
+Below is the **code snippet for Windsor DI** implementation
 ```
 // application starts...
 var container = new WindsorContainer();
@@ -56,8 +55,8 @@ public class RepositoriesInstaller : IWindsorInstaller
 
 ### .NET Core API Built-in DI<a name="net-core-api-built-in-di"></a>
 
-|**.NET DI - Code snippet**                                                                                                                     |
-|-----------------------------------------------------------------------------------------------------------------------------------------------|
+Below is the **code snippet for .NET DI** implementation
+
 ```
 public static class ServicesInstaller
     {
