@@ -91,6 +91,8 @@ public static class ServicesInstaller
 * [Singleton](#by-context-or-functionality): Only one instance of the service is created if it’s not already registered as an instance. Single instance services are tracked by the root scope if they are created by the framework. This means that single instance services will not be disposed until the root scope is disposed which is usually occur when the application exits. Please note that if your singleton service is disposable and you didn’t register it with its implemented type or service provider factory and registered it as an instance, framework does not track and dispose it. In this case you should manually dispose it after the service container is disposed.
 * [Scoped](#by-context-or-functionality): A new instance of a service is created in each scope. It will act as if it is singleton within that scope. If the service is disposable it will be disposed when service scope is disposed.
 
+![Service Lifetime](/Service_Lifetime.jpg "Service Lifetime")
+
 #### CHOOSING SERVICE LIFETIME FOR YOUR SERVICES ####
 
 ##### BY CONTEXT OR FUNCTIONALITY #####
