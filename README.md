@@ -59,7 +59,7 @@ Reference:     
 
 [Dependency Injection Example - GitHub](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/fundamentals/dependency-injection.md)
 
->**Microsoft DI is the replacement for the legacy Castle Windsor DI in the Migrated Code.**
+>**_NOTE:_** **Microsoft DI is the replacement for the legacy Castle Windsor DI in the Migrated Code.**
 
 Below is the **code snippet for .NET DI** implementation
 
