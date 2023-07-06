@@ -5,7 +5,7 @@ Migrate Windsor DI: Document Review Service
 * [Windsor DI](#windsor-di)
 * [.NET Core API Built-in DI](#net-core-api-built-in-di)
 
-### Introduction<a name="introduction"></a>
+### Introduction
 
 DI is an established design pattern describing how objects acquire their dependencies. This pattern is often facilitated by an Inversion of Control (IoC) container, which is used at runtime to resolve and inject dependencies as objects are instantiated. The Legacy Application Uses Windsor DI, which needs to be Migrated to the .NET Core API built in DI provided by Microsoft, this documentation is a small comparison of the code changes and the steps followed. 
 
