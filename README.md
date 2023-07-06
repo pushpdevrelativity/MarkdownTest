@@ -11,7 +11,7 @@ DI is an established design pattern describing how objects acquire their depende
 
   
 
-### Functional Description<a name="functional-description"></a>
+### Functional Description
 
 The new .NET Core DI abstraction has proven to be a far from trivial task for most DI Containers. Some Containers are simply not compatible with the way Microsoft built their DI Container and Castle Windsor is a good example.
 
@@ -19,7 +19,7 @@ The Castle Windsor maintainers have tried [for quite some time](https://github.
 
 Castle isn't the only container that falls into this category. Contains such as Simple Injector, Ninject, Unity and StructureMap have proven to be incompatible with the new .NET Core DI Abstraction as well. Although StructureMap actually has an adapter, their adapter isn't 100% compatible with the abstraction, which might obviously lead to problems when the ASP.NET Core framework, or a third-party library, starts to depend on that incompatible behavior. And even for other containers with an adapter, like Autofac and LightInject, problems with their adapters seem to keep popping up, which proves (IMO) the underlying model is flawed
 
-### Windsor DI<a name="windsor-di"></a>
+### Windsor DI
 
 Reference:     
 
@@ -53,7 +53,7 @@ public class RepositoriesInstaller : IWindsorInstaller
 ```
   
 
-### .NET Core API Built-in DI<a name="net-core-api-built-in-di"></a>
+### .NET Core API Built-in DI
 
 Reference:     
 
