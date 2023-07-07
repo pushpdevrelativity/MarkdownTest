@@ -1,4 +1,4 @@
-Migrate Windsor DI: Document Review Service
+Migrate Windsor DI to Microsoft DI: Document Review Service
 -------------------------------------------
 * [Introduction](#introduction)
 * [Functional Description](#functional-description)
@@ -7,7 +7,7 @@ Migrate Windsor DI: Document Review Service
 
 ### Introduction
 
-DI is an established design pattern describing how objects acquire their dependencies. This pattern is often facilitated by an Inversion of Control (IoC) container, which is used at runtime to resolve and inject dependencies as objects are instantiated. The Legacy Application Uses Windsor DI, which needs to be Migrated to the .NET Core API built in DI provided by Microsoft, this documentation is a small comparison of the code changes and the steps followed. 
+DI is an established design pattern describing how objects acquire their dependencies. This pattern is often facilitated by an Inversion of Control (IoC) container, which is used at runtime to resolve and inject dependencies as objects are instantiated. The Legacy Application Uses Windsor DI, which needs to be Migrated to the .NET Core API built in DI provided by [Microsoft](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0), this documentation is a small comparison of the code changes and the steps followed. 
 
   
 
@@ -61,7 +61,18 @@ Reference:     
 
 >**_NOTE:_** **Microsoft DI is the replacement for the legacy Castle Windsor DI in the Migrated Code.**
 
-Below is the **code snippet for .NET DI** implementation
+**Step#1:** Replace NuGet Package:
+Remove the Castle Windsor NuGet package references from all the libraries.
+Add the **Microsoft.Extensions.DependencyInjection** NuGet package to **reviewService API**.
+
+**Step#2:**  Review Dependencies:
+Identify the classes and interfaces that are registered and resolved using Windsor DI in codebase.
+Determine the corresponding dependencies that need to be registered and injected using Microsoft DI.
+Example: *PersistentHighlightServiceHelper, RelativityFieldHelper, AnnotationServiceHelper*
+
+**Step#3:**  In new implementation registered all the dependencies to the Service collection which is instantiated from the startup class. In legacy code registered all the dependencies to the Windsor container.
+
+Example: *Microsoft Dependency Injection (converted):*
 
 ```
 public static class ServicesInstaller
@@ -82,6 +93,28 @@ public static class ServicesInstaller
 }
 }
 ```
+**Step#4:** Update constructor injection             
+Classes where constructor injection using Windsor, updated the constructor parameter types to use the corresponding types from Microsoft Dependency Injection. Ensuring that the necessary interfaces and classes are registered in the DI container using the appropriate lifetime scope.
+
+Example: 
+```
+public PersistentHighlightServiceHelper(
+                    ILogger<PersistentHighlightServiceHelper> logger,
+                    IPersistentHighlightManager persistentHighlightManager,
+                    IUserContext userContext,
+                    IConversionApmClient apmClient, IErrorDataAccess errorDataAccess
+                    )
+             {
+                    _persistentHighlightManager = persistentHighlightManager;
+                    // Remaining Code
+              }
+```
+In the above code snippet, the resolved persistentHighlightManager dependency is assigned to the _persistentHighlightManager field within the PersistentHighlightServiceHelper. This allows the class to use the dependency in the remaining code.
+ 
+By leveraging constructor injection, the class can be easily tested and decoupled from its dependencies, as they can be easily mocked or replaced during unit testing or when wiring up the dependencies using a DI container.
+
+**Step#5: Test and Refactor:**
+Thoroughly test respective endpoints after the migration to ensure that the dependencies are resolved correctly and the application functions as expected.
 
 ### SERVICE LIFETIMES ###
 --------------------------
