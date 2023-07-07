@@ -3,7 +3,6 @@ Playbook for .NET Core Migration
 This is a Playbook for the approach taken for Service/ SDK Migration.
 
 ### Step-by-step guide ###
-
 Step-by-step guide
 
 | **STAGE**  | **STAGE ACTIVITIES** | **WinWire** | **Relativity** | **Outcome** |
