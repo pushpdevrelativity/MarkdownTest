@@ -61,14 +61,16 @@ Reference:     
 
 >**_NOTE:_** **Microsoft DI is the replacement for the legacy Castle Windsor DI in the Migrated Code.**
 
+**<ins>Steps to convert Windsor DI to Microsoft DI</ins>**
+
 **Step#1:** Replace NuGet Package:
 Remove the Castle Windsor NuGet package references from all the libraries.
 Add the **Microsoft.Extensions.DependencyInjection** NuGet package to **reviewService API**.
 
 **Step#2:**  Review Dependencies:
 Identify the classes and interfaces that are registered and resolved using Windsor DI in codebase.
-Determine the corresponding dependencies that need to be registered and injected using Microsoft DI.
-Example: *PersistentHighlightServiceHelper, RelativityFieldHelper, AnnotationServiceHelper*
+Determine the corresponding dependencies that need to be registered and injected using Microsoft DI.<br>
+Example: *PersistentHighlightServiceHelper, <br>RelativityFieldHelper, <br>AnnotationServiceHelper*
 
 **Step#3:**  In new implementation registered all the dependencies to the Service collection which is instantiated from the startup class. In legacy code registered all the dependencies to the Windsor container.
 
