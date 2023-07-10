@@ -70,7 +70,7 @@ Add the **Microsoft.Extensions.DependencyInjection** NuGet package to **reviewSe
 **Step#2:**  Review Dependencies:
 Identify the classes and interfaces that are registered and resolved using Windsor DI in codebase.
 Determine the corresponding dependencies that need to be registered and injected using Microsoft DI.<br>
-Example: *PersistentHighlightServiceHelper, <br>RelativityFieldHelper, <br>AnnotationServiceHelper*
+Example: <br>&nbsp;&nbsp;*PersistentHighlightServiceHelper, <br>&nbsp;&nbsp;RelativityFieldHelper, <br>&nbsp;&nbsp;AnnotationServiceHelper*
 
 **Step#3:**  In new implementation registered all the dependencies to the Service collection which is instantiated from the startup class. In legacy code registered all the dependencies to the Windsor container.
 
