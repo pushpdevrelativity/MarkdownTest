@@ -7,7 +7,7 @@ The primary objectives of the migration evaluation service are:
 * Get rid of the Kepler service.
 * Review service must be compatible with open-source operating systems for deployment.
 
-Using the strategy listed below Review Service migration.
+Using the strategy listed below for Review Service migration.
 
 ### Step-by-step guide ###
 Step-by-step guide
